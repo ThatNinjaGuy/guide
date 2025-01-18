@@ -10,47 +10,25 @@ function Home() {
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
-      // Replace with your actual API endpoint
-      // TODO: Replace with actual API call
-      // const response = await fetch(`/api/search?query=${searchQuery}`);
+      // Simulated API response
       const response = {
         json: () => [
           {
             id: 1,
-            title: "Career Development Bundle",
+            title: "College Application Success Bundle",
             description:
-              "Comprehensive career planning and development guidance",
-            price: "$199",
-            image: "/images/career.jpg",
-          },
-          {
-            id: 2,
-            title: "College Application Package",
-            description: "Expert guidance for college applications and essays",
-            price: "$249",
+              "Complete guidance for college applications, essays, and interviews",
+            price: "$299",
             image: "/images/college.jpg",
+            features: [
+              "Essay Review",
+              "Interview Prep",
+              "Application Strategy",
+            ],
+            mentors: 3,
+            duration: "3 months",
           },
-          {
-            id: 3,
-            title: "Interview Preparation Bundle",
-            description: "Mock interviews and preparation techniques",
-            price: "$179",
-            image: "/images/interview.jpg",
-          },
-          {
-            id: 4,
-            title: "Study Skills Enhancement",
-            description: "Learn effective study methods and time management",
-            price: "$149",
-            image: "/images/study.jpg",
-          },
-          {
-            id: 5,
-            title: "Professional Networking Package",
-            description: "Build your professional network and personal brand",
-            price: "$219",
-            image: "/images/networking.jpg",
-          },
+          // ... other bundles
         ],
       };
       const data = await response.json();
@@ -63,48 +41,85 @@ function Home() {
   const featuredBundles = [
     {
       id: 1,
-      title: "Career Guidance Package",
-      description: "Complete career counseling with experienced mentors",
-      price: "$199",
-      image: "/images/career-guidance.jpg",
+      title: "College Application Success",
+      description: "Expert guidance for college applications and essays",
+      price: "$299",
+      image: "/images/college.jpg",
+      features: ["Essay Review", "Interview Prep", "Application Strategy"],
+      mentors: 3,
+      duration: "3 months",
+      category: "College Prep",
     },
     {
       id: 2,
-      title: "Academic Excellence Bundle",
-      description: "Academic mentoring and study planning",
-      price: "$149",
-      image: "/images/academic.jpg",
+      title: "STEM Career Guidance",
+      description: "Specialized mentoring for STEM career paths",
+      price: "$249",
+      image: "/images/stem.jpg",
+      features: ["Career Planning", "Industry Insights", "Skills Assessment"],
+      mentors: 5,
+      duration: "2 months",
+      category: "Career",
     },
-    {
-      id: 3,
-      title: "Career Guidance Package",
-      description: "Complete career counseling with experienced mentors",
-      price: "$199",
-      image: "/images/career-guidance.jpg",
-    },
-    {
-      id: 4,
-      title: "Academic Excellence Bundle",
-      description: "Academic mentoring and study planning",
-      price: "$149",
-      image: "/images/academic.jpg",
-    },
-    // Add more bundles as needed
+    // Add more relevant bundles
   ];
 
   return (
     <div className="home">
       <section className="hero-section">
-        <h1>Find Your Perfect Mentor</h1>
-        <form onSubmit={handleSearch} className="search-form">
-          <input
-            type="text"
-            placeholder="What kind of guidance are you looking for?"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          <button type="submit">Search</button>
-        </form>
+        <div className="hero-content">
+          <h1>Find Your Perfect Academic Mentor</h1>
+          <p className="hero-subtitle">
+            Connect with experienced mentors who can guide you through your
+            academic and career journey
+          </p>
+          <form onSubmit={handleSearch} className="search-form">
+            <input
+              type="text"
+              placeholder="What kind of guidance are you looking for?"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button type="submit">Find Mentors</button>
+          </form>
+        </div>
+        <div className="hero-stats">
+          <div className="stat-item">
+            <span className="stat-number">500+</span>
+            <span className="stat-label">Expert Mentors</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-number">10k+</span>
+            <span className="stat-label">Students Guided</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-number">95%</span>
+            <span className="stat-label">Success Rate</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="categories-section">
+        <h2>Browse by Category</h2>
+        <div className="categories-grid">
+          {[
+            "College Prep",
+            "Career Guidance",
+            "Academic Support",
+            "Test Prep",
+            "Skills Development",
+            "Research Guidance",
+          ].map((category) => (
+            <div key={category} className="category-card">
+              <h3>{category}</h3>
+              <button
+                onClick={() => navigate(`/search-results?category=${category}`)}
+              >
+                Explore
+              </button>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="featured-bundles">
@@ -113,6 +128,32 @@ function Home() {
           {featuredBundles.map((bundle) => (
             <ProductBundle key={bundle.id} bundle={bundle} />
           ))}
+        </div>
+      </section>
+
+      <section className="why-choose-us">
+        <h2>Why Choose Our Platform?</h2>
+        <div className="features-grid">
+          <div className="feature-card">
+            <i className="fas fa-user-check"></i>
+            <h3>Verified Mentors</h3>
+            <p>
+              All our mentors are thoroughly vetted and experienced
+              professionals
+            </p>
+          </div>
+          <div className="feature-card">
+            <i className="fas fa-comments"></i>
+            <h3>Personalized Guidance</h3>
+            <p>
+              Get customized advice tailored to your specific needs and goals
+            </p>
+          </div>
+          <div className="feature-card">
+            <i className="fas fa-clock"></i>
+            <h3>Flexible Scheduling</h3>
+            <p>Book sessions at times that work best for your schedule</p>
+          </div>
         </div>
       </section>
     </div>
