@@ -1,0 +1,22 @@
+.search-results {
+  padding: 2rem;
+}
+
+.search-results h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+}
