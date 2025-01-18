@@ -1,8 +1,11 @@
 .App {
-  text-align: center;
+  min-height: 100vh;
+  background-color: var(--background-light);
+  color: var(--text-primary);
 }
 
-.App-logo {
+/* Remove unused styles */
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -34,5 +37,58 @@
   }
   to {
     transform: rotate(360deg);
+  }
+} */
+
+/* Add new global styles */
+a {
+  color: var(--primary-main);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Add container class for consistent width */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* Add responsive breakpoints */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-sm);
   }
 }
