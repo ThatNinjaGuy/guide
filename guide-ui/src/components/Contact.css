@@ -1,13 +1,23 @@
 .contact {
   padding: var(--spacing-lg);
-  background-color: var(--background-light);
+  background: linear-gradient(
+    135deg,
+    var(--background-main),
+    var(--background-light)
+  );
   min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contact-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: var(--spacing-lg);
+  background-color: var(--background-paper);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
 }
 
 .contact h1 {
@@ -78,6 +88,7 @@
 .form-group textarea {
   width: 100%;
   padding: var(--spacing-sm);
+  padding-right: calc(var(--spacing-sm) - 10px);
   border: 1px solid var(--border-main);
   border-radius: var(--border-radius-sm);
   font-size: 1rem;

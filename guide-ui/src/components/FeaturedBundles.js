@@ -1,5 +1,6 @@
 import React from "react";
 import ProductBundle from "./ProductBundle";
+import "./FeaturedBundles.css";
 
 function FeaturedBundles({ featuredBundles }) {
   return (

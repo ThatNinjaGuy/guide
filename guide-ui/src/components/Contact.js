@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Contact.css";
+import { CONTACT_EMAIL } from "../constants/constants";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -22,6 +23,10 @@ function Contact() {
     });
   };
 
+  const handleEmailClick = () => {
+    window.location.href = `mailto:${CONTACT_EMAIL}`;
+  };
+
   return (
     <div className="contact">
       <div className="contact-container">
@@ -35,16 +40,22 @@ function Contact() {
             <div className="contact-details">
               <div className="contact-item">
                 <i className="fas fa-envelope"></i>
-                <p>support@mentorguide.com</p>
+                <p>{CONTACT_EMAIL}</p>
+                <i
+                  className="fas fa-paper-plane"
+                  onClick={handleEmailClick}
+                  style={{ cursor: "pointer", marginLeft: "10px" }}
+                  title="Send Email"
+                ></i>
               </div>
-              <div className="contact-item">
+              {/* <div className="contact-item">
                 <i className="fas fa-phone"></i>
-                <p>+1 (555) 123-4567</p>
-              </div>
-              <div className="contact-item">
+                <p>+91 9110091875</p>
+              </div> */}
+              {/* <div className="contact-item">
                 <i className="fas fa-location-dot"></i>
-                <p>123 Mentor Street, Guide City, GC 12345</p>
-              </div>
+                <p>India</p>
+              </div> */}
             </div>
           </div>
 
