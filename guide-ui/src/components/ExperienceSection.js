@@ -1,30 +1,22 @@
 import React from "react";
 import "./ExperienceSection.css";
+import { experiences } from "../data/experience";
 
 function ExperienceSection({ handleSearch }) {
-  const experiences = [
-    "Internship",
-    "Entry Level",
-    "Mid Level",
-    "Senior Level",
-    "Management",
-    "Executive",
-  ];
-
   return (
     <section className="experience-section">
       <h2>Browse by Experience</h2>
       <div className="experience-grid">
         {experiences.map((experience) => (
           <div
-            key={experience}
+            key={experience.id}
             className="experience-card"
             tabIndex="0"
-            onClick={() => handleSearch("", [], [experience], [])}
+            onClick={() => handleSearch("", [], [experience.name], [])}
             role="button"
-            aria-label={`Explore ${experience}`}
+            aria-label={`Explore ${experience.name}`}
           >
-            <h3>{experience}</h3>
+            <h3>{experience.name}</h3>
           </div>
         ))}
       </div>

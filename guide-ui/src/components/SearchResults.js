@@ -5,14 +5,21 @@ import "./SearchResults.css";
 
 function SearchResults() {
   const location = useLocation();
-  const results = location.state?.results?.results || [];
+  const normalProducts = location.state?.results?.normalProducts || [];
+  const bundledProducts = location.state?.results?.bundledProducts || [];
 
   return (
     <div className="search-results">
       <h2>Recommended Packages</h2>
       <div className="results-grid">
-        {results.map((result) => (
-          <ProductBundle key={result.id} bundle={result} />
+        {bundledProducts.map((bundle) => (
+          <ProductBundle key={bundle.id} bundle={bundle} />
+        ))}
+      </div>
+      <h2>Available Products</h2>
+      <div className="results-grid">
+        {normalProducts.map((product) => (
+          <ProductBundle key={product.id} bundle={product} />
         ))}
       </div>
     </div>

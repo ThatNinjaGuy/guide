@@ -1,30 +1,22 @@
 import React from "react";
 import "./CategoriesSection.css";
+import { categories } from "../data/categories";
 
 function CategoriesSection({ handleSearch }) {
-  const categories = [
-    "College Prep",
-    "Career Guidance",
-    "Academic Support",
-    "Test Prep",
-    "Skills Development",
-    "Research Guidance",
-  ];
-
   return (
     <section className="categories-section">
       <h2>Browse by Category</h2>
       <div className="categories-grid">
         {categories.map((category) => (
           <div
-            key={category}
+            key={category.id}
             className="category-card"
             tabIndex="0"
-            onClick={() => handleSearch("", [], [], category)}
+            onClick={() => handleSearch("", [], [], category.name)}
             role="button"
-            aria-label={`Explore ${category}`}
+            aria-label={`Explore ${category.name}`}
           >
-            <h3>{category}</h3>
+            <h3>{category.name}</h3>
           </div>
         ))}
       </div>

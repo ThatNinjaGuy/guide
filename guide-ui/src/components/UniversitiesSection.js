@@ -1,34 +1,22 @@
 import React from "react";
 import "./UniversitiesSection.css";
+import { universities } from "../data/universities";
 
 function UniversitiesSection({ handleSearch }) {
-  const universities = [
-    "Harvard University",
-    "Stanford University",
-    "MIT",
-    "University of Oxford",
-    "University of Cambridge",
-    "Caltech",
-    "Yale University",
-    "Princeton University",
-    "Columbia University",
-    "Cornell University",
-  ];
-
   return (
     <section className="universities-section">
       <h2>Browse by Universities</h2>
       <div className="universities-grid">
         {universities.map((university) => (
           <div
-            key={university}
+            key={university.id}
             className="university-card"
             tabIndex="0"
-            onClick={() => handleSearch("", [university], [], [])}
+            onClick={() => handleSearch("", [university.name], [], [])}
             role="button"
-            aria-label={`Explore ${university}`}
+            aria-label={`Explore ${university.name}`}
           >
-            <h3>{university}</h3>
+            <h3>{university.name}</h3>
           </div>
         ))}
       </div>
