@@ -1,6 +1,7 @@
 .featured-bundles {
   padding: var(--spacing-xl) var(--spacing-lg);
   background-color: var(--background-main);
+  text-align: center;
 }
 
 .bundles-grid {
