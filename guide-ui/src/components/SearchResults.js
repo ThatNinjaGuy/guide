@@ -10,17 +10,22 @@ function SearchResults() {
 
   return (
     <div className="search-results">
-      <h2>Recommended Packages</h2>
-      <div className="results-grid">
-        {bundledProducts.map((bundle) => (
-          <ProductBundle key={bundle.id} bundle={bundle} />
-        ))}
+      <div className="products-section">
+        <h2>Recommended Packages</h2>
+        <div className="results-grid">
+          {bundledProducts.map((bundle) => (
+            <ProductBundle key={bundle.id} bundle={bundle} />
+          ))}
+        </div>
       </div>
-      <h2>Available Products</h2>
-      <div className="results-grid">
-        {normalProducts.map((product) => (
-          <ProductBundle key={product.id} bundle={product} />
-        ))}
+
+      <div className="products-section">
+        <h2>Available Products</h2>
+        <div className="results-grid">
+          {normalProducts.map((product) => (
+            <ProductBundle key={product.id} bundle={product} />
+          ))}
+        </div>
       </div>
     </div>
   );

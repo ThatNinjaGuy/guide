@@ -8,15 +8,26 @@
   color: #333;
 }
 
+/* Add spacing between the two product sections */
+.search-results h2:not(:first-child) {
+  margin-top: 4rem; /* Add more space above the "Available Products" heading */
+}
+
 .results-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   padding: 0 2rem;
+  margin-bottom: 2rem; /* Add bottom margin to each grid */
 }
 
 .no-results {
   text-align: center;
   padding: 3rem;
   color: #666;
+}
+
+/* Add a section wrapper for better spacing control */
+.products-section {
+  margin-bottom: 4rem;
 }
