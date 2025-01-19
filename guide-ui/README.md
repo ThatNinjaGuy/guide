@@ -1,80 +1,36 @@
-# MentorGuide UI
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A comprehensive React-based mentorship platform that connects students and professionals with expert mentors for personalized guidance and career development.
+## Getting Started
 
-## Overview
+First, run the development server:
 
-MentorGuide UI is an intuitive web application designed to streamline the process of finding and accessing professional mentorship services. Our platform offers carefully curated guidance packages across various domains, making expert mentorship accessible to everyone.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## Key Features
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Mentorship Services
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- 🎓 **College Application Strategy**
-  - Application planning
-  - University selection guidance
-  - Timeline management
-  
-- 📝 **Personal Statement Review**
-  - Content evaluation
-  - Structure optimization
-  - Writing style enhancement
-  
-- 📚 **Academic Planning**
-  - Course selection guidance
-  - Study schedule optimization
-  - Academic goal setting
-  
-- 💼 **Career Path Exploration**
-  - Industry insights
-  - Career trajectory planning
-  - Professional development strategies
-  
-- 🎯 **Interview Preparation**
-  - Mock interviews
-  - Question preparation
-  - Feedback sessions
-  
-- 📊 **Research Project Guidance**
-  - Topic selection
-  - Methodology planning
-  - Research paper review
-  
-- 📖 **Study Skills Enhancement**
-  - Learning technique optimization
-  - Time management strategies
-  - Resource utilization
-  
-- 📈 **Test Prep Strategy**
-  - Exam-specific preparation
-  - Practice test analysis
-  - Performance optimization
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-### Platform Features
+## Learn More
 
-- Intuitive search functionality
-- Personalized mentorship matching
-- Flexible scheduling system
-- Secure payment processing
-- Real-time communication tools
-- Progress tracking dashboard
+To learn more about Next.js, take a look at the following resources:
 
-## Technical Stack
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- React 18.2.0
-- React Router DOM 7.1.3
-- Modern CSS with CSS Variables
-- Responsive Design
-- Component-Based Architecture
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Quick Start
+## Deploy on Vercel
 
-1. Install dependencies:
-bash
-npm install
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-2. Start the development server:
-bash
-npm start
-
-3. Access the application at `http://localhost:3000`
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

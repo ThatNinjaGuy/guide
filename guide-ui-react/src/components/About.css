@@ -1,0 +1,80 @@
+.about {
+  padding: var(--spacing-lg);
+  background-color: var(--background-light);
+  min-height: calc(100vh - 64px);
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+.about h1 {
+  text-align: center;
+  color: var(--primary-dark);
+  margin-bottom: var(--spacing-xl);
+  font-size: 2.5rem;
+}
+
+.mission-section,
+.values-section,
+.team-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.mission-section h2,
+.values-section h2,
+.team-section h2 {
+  color: var(--primary-main);
+  margin-bottom: var(--spacing-md);
+  font-size: 2rem;
+}
+
+.mission-section p,
+.team-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.value-item {
+  background: var(--background-paper);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.value-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.value-item h3 {
+  color: var(--primary-dark);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.5rem;
+}
+
+.value-item p {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: var(--spacing-md);
+  }
+
+  .values-grid {
+    gap: var(--spacing-md);
+  }
+}

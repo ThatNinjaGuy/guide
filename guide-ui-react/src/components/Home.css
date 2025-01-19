@@ -1,0 +1,37 @@
+/* Import theme variables using CSS variables */
+:root {
+  --primary-dark: #4b5320;
+  --primary-main: #556b2f;
+  --primary-light: #f5f5dc;
+  --secondary-main: #cd853f;
+  --secondary-dark: #8b4513;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-light: #ffffff;
+  --background-main: #f5f5dc;
+  --background-paper: #ffffff;
+  --background-light: #f8f9fa;
+}
+
+.home {
+  min-height: 100vh;
+}
+
+.explore-button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--primary-main);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: var(--primary-dark);
+}
+
+.explore-button:focus {
+  outline: 2px solid var(--secondary-main);
+}
