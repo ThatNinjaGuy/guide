@@ -1,8 +1,21 @@
 import React from "react";
 import "./UniversitiesSection.css";
-import { universities } from "../data/universities";
+import { useUniversities } from "../hooks/useUniversities";
 
 function UniversitiesSection({ handleSearch }) {
+  const { universities, loading } = useUniversities();
+
+  if (loading) {
+    return (
+      <section className="universities-section">
+        <h2>Browse by Universities</h2>
+        <div className="universities-grid">
+          <p>Loading universities...</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="universities-section">
       <h2>Browse by Universities</h2>

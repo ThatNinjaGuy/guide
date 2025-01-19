@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import HeroSection from "./HeroSection";
@@ -8,10 +8,24 @@ import WhyChooseUs from "./WhyChooseUs";
 import UniversitiesSection from "./UniversitiesSection";
 import ExperienceSection from "./ExperienceSection";
 import { fetchSearchResults } from "../apis/search";
-import { products } from "../data/products"; // Import the products list
+import { fetchFeaturedBundles } from "../apis/products";
 
 function Home() {
   const navigate = useNavigate();
+  const [featuredBundles, setFeaturedBundles] = useState([]);
+
+  useEffect(() => {
+    const loadFeaturedBundles = async () => {
+      try {
+        const bundles = await fetchFeaturedBundles();
+        setFeaturedBundles(bundles);
+      } catch (error) {
+        console.error("Error fetching featured bundles:", error);
+      }
+    };
+
+    loadFeaturedBundles();
+  }, []);
 
   const handleSearch = async (
     searchQuery,
@@ -33,9 +47,6 @@ function Home() {
       console.error("Error fetching results:", error);
     }
   };
-
-  // Filter products to get only bundles
-  const featuredBundles = products.filter((product) => product.products);
 
   return (
     <div className="home">

@@ -1,8 +1,21 @@
 import React from "react";
 import "./CategoriesSection.css";
-import { categories } from "../data/categories";
+import { useCategories } from "../hooks/useCategories";
 
 function CategoriesSection({ handleSearch }) {
+  const { categories, loading } = useCategories();
+
+  if (loading) {
+    return (
+      <section className="categories-section">
+        <h2>Browse by Category</h2>
+        <div className="categories-grid">
+          <p>Loading categories...</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="categories-section">
       <h2>Browse by Category</h2>

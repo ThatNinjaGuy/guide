@@ -1,22 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./ProductDetails.css";
 import logo from "../assets/images/logo512.png"; // Ensure this path is correct
 import ProductBundle from "./ProductBundle"; // Import the ProductBundle component
-import { products } from "../data/products"; // Import the products array
+import { fetchProductById, fetchProductsByIds } from "../apis/products";
 
 function ProductDetails() {
   const { id } = useParams();
+  const [productBundle, setProductBundle] = useState(null);
+  const [includedProducts, setIncludedProducts] = useState([]);
 
-  // Find the product by id
-  const productBundle = products.find((product) => product.id === id);
+  useEffect(() => {
+    const loadProductDetails = async () => {
+      try {
+        const product = await fetchProductById(id);
+        setProductBundle(product);
 
-  // If the product is a bundle, find the included products
-  const includedProducts = productBundle.products
-    ? productBundle.products.map((productId) =>
-        products.find((product) => product.id === productId)
-      )
-    : [];
+        if (product && product.products) {
+          const included = await fetchProductsByIds(product.products);
+          setIncludedProducts(included);
+        }
+      } catch (error) {
+        console.error("Error loading product details:", error);
+      }
+    };
+
+    loadProductDetails();
+  }, [id]);
+
+  if (!productBundle) {
+    return <p>Loading product details...</p>;
+  }
 
   return (
     <div className="product-details-container">

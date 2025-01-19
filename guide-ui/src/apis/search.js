@@ -1,6 +1,6 @@
 // guide-ui/src/components/api.js
 
-import { products } from "../data/products.js";
+import { fetchProducts } from "./products";
 
 export const fetchSearchResults = async (
   searchQuery,
@@ -8,6 +8,8 @@ export const fetchSearchResults = async (
   experience,
   category
 ) => {
+  const products = await fetchProducts();
+
   // Separate normal products and bundled products
   const normalProducts = products.filter((product) => !product.products);
   const bundledProducts = products.filter((product) => product.products);

@@ -1,8 +1,21 @@
 import React from "react";
 import "./ExperienceSection.css";
-import { experiences } from "../data/experience";
+import { useExperiences } from "../hooks/useExperiences";
 
 function ExperienceSection({ handleSearch }) {
+  const { experiences, loading } = useExperiences();
+
+  if (loading) {
+    return (
+      <section className="experience-section">
+        <h2>Browse by Experience</h2>
+        <div className="experience-grid">
+          <p>Loading experiences...</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="experience-section">
       <h2>Browse by Experience</h2>
