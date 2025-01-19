@@ -16,7 +16,10 @@ function ProductDetails() {
         const product = await fetchProductById(id);
         setProductBundle(product);
 
-        if (product && product.products) {
+        // Reset included products when a new product is loaded
+        setIncludedProducts([]);
+
+        if (product && product.products && product.products.length > 0) {
           const included = await fetchProductsByIds(product.products);
           setIncludedProducts(included);
         }
