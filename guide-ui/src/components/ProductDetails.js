@@ -36,6 +36,7 @@ function ProductDetails() {
         </div>
         <div className="pricing-column">
           <div className="pricing-info">
+            {/* <h2 className="pricing-title">{productBundle.title}</h2> */}
             <div className="pricing">
               <h3>Price: {productBundle.price}</h3>
             </div>
@@ -45,7 +46,7 @@ function ProductDetails() {
       </div>
       {includedProducts.length > 0 && (
         <div className="included-sessions">
-          <h3>Included Mentorships:</h3>
+          <h3>Included Mentorships</h3>
           <div className="product-cards">
             {includedProducts.map((product) => (
               <ProductBundle key={product.id} bundle={product} />
