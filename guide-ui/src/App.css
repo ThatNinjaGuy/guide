@@ -92,3 +92,22 @@ button {
     padding: 0 var(--spacing-sm);
   }
 }
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+}
+
+.navbar {
+  flex: 0 0 auto; /* Navbar takes only the space it needs */
+}
+
+.content-container {
+  flex: 1 1 auto; /* Content takes the remaining space */
+  overflow-y: auto; /* Allow scrolling within the content if needed */
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-main);
+  padding: 20px; /* Optional: Add padding if needed */
+}

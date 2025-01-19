@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { theme } from "../config/theme";
+import { theme } from "./config/theme";
 
 function ThemeProvider({ children }) {
   useEffect(() => {
