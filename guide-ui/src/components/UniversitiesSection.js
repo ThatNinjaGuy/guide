@@ -1,10 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import "./UniversitiesSection.css";
 
-function UniversitiesSection() {
-  const navigate = useNavigate();
-
+function UniversitiesSection({ handleSearch }) {
   const universities = [
     "Harvard University",
     "Stanford University",
@@ -27,11 +24,7 @@ function UniversitiesSection() {
             key={university}
             className="university-card"
             tabIndex="0"
-            onClick={() => navigate(`/search-results?university=${university}`)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter")
-                navigate(`/search-results?university=${university}`);
-            }}
+            onClick={() => handleSearch("", [university], [], [])}
             role="button"
             aria-label={`Explore ${university}`}
           >

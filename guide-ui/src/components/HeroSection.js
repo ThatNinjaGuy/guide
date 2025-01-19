@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import "./HeroSection.css";
 
-function HeroSection({ searchQuery, setSearchQuery, handleSearch }) {
+function HeroSection({ handleSearch }) {
+  const [searchQuery, setSearchQuery] = useState("");
+
   return (
     <section className="hero-section">
       <div className="hero-content">
@@ -9,7 +12,13 @@ function HeroSection({ searchQuery, setSearchQuery, handleSearch }) {
           Connect with experienced mentors who can guide you through your
           academic and career journey
         </p>
-        <form onSubmit={handleSearch} className="search-form">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSearch(searchQuery, [], [], []);
+          }}
+          className="search-form"
+        >
           <input
             type="text"
             placeholder="What kind of guidance are you looking for?"

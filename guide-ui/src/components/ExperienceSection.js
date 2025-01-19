@@ -1,10 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import "./ExperienceSection.css";
 
-function ExperienceSection() {
-  const navigate = useNavigate();
-
+function ExperienceSection({ handleSearch }) {
   const experiences = [
     "Internship",
     "Entry Level",
@@ -23,11 +20,7 @@ function ExperienceSection() {
             key={experience}
             className="experience-card"
             tabIndex="0"
-            onClick={() => navigate(`/search-results?experience=${experience}`)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter")
-                navigate(`/search-results?experience=${experience}`);
-            }}
+            onClick={() => handleSearch("", [], [experience], [])}
             role="button"
             aria-label={`Explore ${experience}`}
           >

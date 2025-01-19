@@ -5,7 +5,7 @@ import "./SearchResults.css";
 
 function SearchResults() {
   const location = useLocation();
-  const results = location.state?.results || [];
+  const results = location.state?.results?.results || [];
 
   return (
     <div className="search-results">

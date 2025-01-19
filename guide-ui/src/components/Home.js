@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import HeroSection from "./HeroSection";
@@ -7,79 +7,26 @@ import FeaturedBundles from "./FeaturedBundles";
 import WhyChooseUs from "./WhyChooseUs";
 import UniversitiesSection from "./UniversitiesSection";
 import ExperienceSection from "./ExperienceSection";
+import { fetchSearchResults } from "../apis/search";
 
 function Home() {
-  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
+  const handleSearch = async (
+    searchQuery,
+    universities,
+    experience,
+    category
+  ) => {
     try {
-      // Simulated API response
-      const response = {
-        json: () => [
-          {
-            id: 1,
-            title: "College Application Success Bundle",
-            description:
-              "Complete guidance for college applications, essays, and interviews",
-            price: "$299",
-            image: "/images/college.jpg",
-            features: [
-              "Essay Review",
-              "Interview Prep",
-              "Application Strategy",
-            ],
-            mentors: 3,
-            duration: "3 months",
-          },
-          {
-            id: 2,
-            title: "STEM Career Guidance Package",
-            description:
-              "Expert mentoring and guidance for pursuing STEM careers",
-            price: "$249",
-            image: "/images/stem.jpg",
-            features: [
-              "Career Planning",
-              "Technical Interview Prep",
-              "Resume Review",
-            ],
-            mentors: 4,
-            duration: "2 months",
-          },
-          {
-            id: 3,
-            title: "Graduate School Application Bundle",
-            description:
-              "Comprehensive support for graduate school applications",
-            price: "$349",
-            image: "/images/grad.jpg",
-            features: [
-              "Research Proposal Help",
-              "Statement of Purpose Review",
-              "Application Strategy",
-            ],
-            mentors: 3,
-            duration: "4 months",
-          },
-          {
-            id: 4,
-            title: "MBA Application Package",
-            description: "Strategic guidance for business school applications",
-            price: "$399",
-            image: "/images/mba.jpg",
-            features: [
-              "Essay Editing",
-              "Interview Coaching",
-              "Resume Building",
-            ],
-            mentors: 5,
-            duration: "3 months",
-          },
-        ],
-      };
-      const data = await response.json();
+      console.log(searchQuery, universities, experience, category);
+      const data = await fetchSearchResults(
+        searchQuery,
+        universities,
+        experience,
+        category
+      );
+      console.log(data);
       navigate("/search-results", { state: { results: data } });
     } catch (error) {
       console.error("Error fetching results:", error);
@@ -161,15 +108,11 @@ function Home() {
 
   return (
     <div className="home">
-      <HeroSection
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        handleSearch={handleSearch}
-      />
-      <UniversitiesSection />
+      <HeroSection handleSearch={handleSearch} />
+      <UniversitiesSection handleSearch={handleSearch} />
       <FeaturedBundles featuredBundles={featuredBundles} />
-      <CategoriesSection />
-      <ExperienceSection />
+      <CategoriesSection handleSearch={handleSearch} />
+      <ExperienceSection handleSearch={handleSearch} />
       <WhyChooseUs />
     </div>
   );

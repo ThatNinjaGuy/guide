@@ -1,5 +1,6 @@
 // guide-ui/src/components/WhyChooseUs.js
 import React from "react";
+import "./WhyChooseUs.css"; // Import the new CSS file
 
 function WhyChooseUs() {
   return (
