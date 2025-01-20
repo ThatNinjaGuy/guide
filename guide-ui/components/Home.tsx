@@ -22,14 +22,20 @@ interface Bundle {
 export default function Home() {
   const router = useRouter();
   const [featuredBundles, setFeaturedBundles] = useState<Bundle[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadFeaturedBundles = async () => {
+      setIsLoading(true);
       try {
         const bundles = await fetchFeaturedBundles();
-        setFeaturedBundles(bundles);
+        console.log("bundles", bundles);
+        setFeaturedBundles(bundles || []);
       } catch (error) {
         console.error("Error fetching featured bundles:", error);
+        setFeaturedBundles([]);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -64,7 +70,10 @@ export default function Home() {
     <div className="home">
       <HeroSection handleSearch={handleSearch} />
       <UniversitiesSection handleSearch={handleSearch} />
-      <FeaturedBundles featuredBundles={featuredBundles} />
+      <FeaturedBundles
+        featuredBundles={featuredBundles}
+        isLoading={isLoading}
+      />
       <CategoriesSection handleSearch={handleSearch} />
       <ExperienceSection handleSearch={handleSearch} />
       <WhyChooseUs />

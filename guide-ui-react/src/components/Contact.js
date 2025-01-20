@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Contact.css";
-import { CONTACT_EMAIL } from "../constants/constants";
+import { CONTACT_EMAIL } from "../../../guide-ui/constants/constants";
 
 function Contact() {
   const [formData, setFormData] = useState({
