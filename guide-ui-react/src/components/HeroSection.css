@@ -1,0 +1,130 @@
+.hero-section {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    var(--background-main),
+    var(--background-paper)
+  );
+  padding: 0 var(--spacing-lg) var(--spacing-xl) var(--spacing-lg);
+  color: var(--text-primary);
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: repeat;
+  opacity: 0.1;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  margin-bottom: var(--spacing-md);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-xl);
+  opacity: 0.9;
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+.search-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  gap: var(--spacing-sm);
+  animation: fadeInUp 0.8s ease-out 0.4s backwards;
+}
+
+.search-form input {
+  flex: 1;
+  padding: var(--spacing-md);
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-size: 1.1rem;
+  box-shadow: var(--shadow-md);
+}
+
+.search-form button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--secondary-main);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-form button:hover {
+  background-color: var(--secondary-dark);
+  transform: translateY(-2px);
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+  animation: fadeInUp 0.8s ease-out 0.6s backwards;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: var(--spacing-xs);
+}
+
+.stat-label {
+  font-size: 1rem;
+  opacity: 0.9;
+  color: var(--text-secondary);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .search-form {
+    flex-direction: column;
+  }
+
+  .search-form button {
+    width: 100%;
+  }
+}
