@@ -9,7 +9,6 @@ import FeaturedBundles from "./FeaturedBundles";
 import WhyChooseUs from "./WhyChooseUs";
 import UniversitiesSection from "./UniversitiesSection";
 import ExperienceSection from "./ExperienceSection";
-import { fetchSearchResults } from "@/lib/apis/search";
 import { fetchFeaturedBundles } from "@/lib/apis/products";
 
 interface Bundle {
@@ -47,18 +46,14 @@ export default function Home() {
     experience: string[],
     categories: string[]
   ) => {
-    try {
-      console.log(searchQuery, universities, experience, categories);
-      const data = await fetchSearchResults(
-        searchQuery,
-        universities,
-        experience,
-        categories
-      );
-      router.push(`/search-results?results=${JSON.stringify(data)}`);
-    } catch (error) {
-      console.error("Error fetching results:", error);
-    }
+    const searchParams = new URLSearchParams({
+      q: searchQuery,
+      universities: universities.join(","),
+      experience: experience.join(","),
+      categories: categories.join(","),
+    });
+
+    router.push(`/search-results?${searchParams.toString()}`);
   };
 
   return (

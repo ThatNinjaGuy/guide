@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, ChangeEvent, FormEvent } from "react";
+import { submitContactForm } from "@/lib/apis/contact";
+import toast from "react-hot-toast";
 import "@/styles/Contact.css";
 import { CONTACT_EMAIL } from "@/constants/constants";
 
@@ -11,6 +13,20 @@ interface FormData {
   message: string;
 }
 
+const toastStyles = {
+  style: {
+    background: "var(--background-paper)",
+    color: "var(--text-secondary)",
+    border: "1px solid var(--border-main)",
+    padding: "16px",
+    fontSize: "0.9rem",
+    maxWidth: "350px",
+    boxShadow: "var(--shadow-sm)",
+  },
+  duration: 3000,
+  position: "top-right" as const,
+};
+
 function Contact() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -18,11 +34,41 @@ function Contact() {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: Implement form submission logic
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+
+    try {
+      const response = await submitContactForm(formData);
+
+      if (response.success) {
+        toast.success(
+          "Thank you for reaching out! Our team will get back to you soon.",
+          toastStyles
+        );
+
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        toast.error("Failed to send message. Please try again later.", {
+          ...toastStyles,
+          duration: 4000,
+        });
+      }
+    } catch {
+      toast.error("Something went wrong. Please try again later.", {
+        ...toastStyles,
+        duration: 4000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -46,27 +92,25 @@ function Contact() {
           <div className="contact-info">
             <h2>Get in Touch</h2>
             <p>
-              Have questions about our mentorship programs? We're here to help!
+              Have questions about our mentorship programs? We&apos;re here to
+              help!
             </p>
             <div className="contact-details">
               <div className="contact-item">
                 <i className="fas fa-envelope"></i>
                 <p>{CONTACT_EMAIL}</p>
                 <i
-                  className="fas fa-paper-plane"
+                  className="fas fa-mailbox"
                   onClick={handleEmailClick}
-                  style={{ cursor: "pointer", marginLeft: "10px" }}
+                  style={{
+                    cursor: "pointer",
+                    marginLeft: "10px",
+                    fontSize: "1.2rem",
+                    color: "var(--primary-main)",
+                  }}
                   title="Send Email"
                 ></i>
               </div>
-              {/* <div className="contact-item">
-                <i className="fas fa-phone"></i>
-                <p>+91 9110091875</p>
-              </div> */}
-              {/* <div className="contact-item">
-                <i className="fas fa-location-dot"></i>
-                <p>India</p>
-              </div> */}
             </div>
           </div>
 
@@ -114,7 +158,21 @@ function Contact() {
                 required
               ></textarea>
             </div>
-            <button type="submit">Send Message</button>
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className={isSubmitting ? "submitting" : ""}
+            >
+              {isSubmitting ? (
+                <>
+                  <span className="spinner"></span>
+                  Sending...
+                </>
+              ) : (
+                "Send Message"
+              )}
+            </button>
           </form>
         </div>
       </div>

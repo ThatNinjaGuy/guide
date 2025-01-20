@@ -20,18 +20,23 @@
   bottom: 0;
   background-repeat: repeat;
   opacity: 0.1;
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
   max-width: 800px;
   margin: 0 auto;
+  z-index: 2;
 }
 
 .hero-section h1 {
   font-size: 3.5rem;
   margin-bottom: var(--spacing-md);
   animation: fadeInUp 0.8s ease-out;
+  color: var(--text-primary);
+  font-weight: bold;
+  line-height: 1.2;
 }
 
 .hero-subtitle {
@@ -56,6 +61,15 @@
   border-radius: var(--border-radius-md);
   font-size: 1.1rem;
   box-shadow: var(--shadow-md);
+  background-color: var(--background-paper);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.search-form input:focus {
+  outline: none;
+  border-color: var(--primary-main);
+  box-shadow: var(--shadow-lg);
 }
 
 .search-form button {
@@ -126,5 +140,29 @@
 
   .search-form button {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .search-form input,
+  .search-form button {
+    font-size: 1rem;
+    padding: var(--spacing-sm);
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
   }
 }

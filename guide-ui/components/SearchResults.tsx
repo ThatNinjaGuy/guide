@@ -63,10 +63,6 @@ function SearchResults() {
 
   return (
     <div className="search-results">
-      {results.searchQuery && (
-        <h1>Search Results for: {results.searchQuery}</h1>
-      )}
-
       <div className="products-section">
         <h2>Recommended Packages</h2>
         <div className="results-grid">
