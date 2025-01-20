@@ -136,6 +136,11 @@
 }
 
 .contact-form button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
   width: 100%;
   padding: var(--spacing-sm);
   background-color: var(--primary-main);
@@ -157,6 +162,28 @@
 
 .contact-form button:active {
   transform: translateY(0);
+}
+
+.contact-form button.submitting {
+  background-color: var(--primary-light);
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--background-paper);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 768px) {
@@ -217,4 +244,51 @@
   .contact-item i {
     font-size: 1.2rem;
   }
+}
+
+/* Custom toast styles */
+:root [role="status"][data-type="success"] {
+  border-left: 4px solid var(--success-main) !important;
+}
+
+:root [role="alert"][data-type="error"] {
+  border-left: 4px solid var(--error-main) !important;
+}
+
+/* Style the toast icons */
+:root [role="status"][data-type="success"] > svg {
+  color: var(--success-main);
+}
+
+:root [role="alert"][data-type="error"] > svg {
+  color: var(--error-main);
+}
+
+/* Add subtle hover effect */
+:root [role="status"],
+:root [role="alert"] {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+:root [role="status"]:hover,
+:root [role="alert"]:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Add animation for toast entrance */
+@keyframes toastSlide {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+:root [role="status"],
+:root [role="alert"] {
+  animation: toastSlide 0.3s ease forwards;
 }

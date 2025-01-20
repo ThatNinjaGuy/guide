@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, ChangeEvent, FormEvent } from "react";
+import { submitContactForm } from "@/lib/apis/contact";
+import toast from "react-hot-toast";
 import "@/styles/Contact.css";
 import { CONTACT_EMAIL } from "@/constants/constants";
 
@@ -11,6 +13,20 @@ interface FormData {
   message: string;
 }
 
+const toastStyles = {
+  style: {
+    background: "var(--background-paper)",
+    color: "var(--text-secondary)",
+    border: "1px solid var(--border-main)",
+    padding: "16px",
+    fontSize: "0.9rem",
+    maxWidth: "350px",
+    boxShadow: "var(--shadow-sm)",
+  },
+  duration: 3000,
+  position: "top-right" as const,
+};
+
 function Contact() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -18,11 +34,41 @@ function Contact() {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: Implement form submission logic
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+
+    try {
+      const response = await submitContactForm(formData);
+
+      if (response.success) {
+        toast.success(
+          "Thank you for reaching out! Our team will get back to you soon.",
+          toastStyles
+        );
+
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        toast.error("Failed to send message. Please try again later.", {
+          ...toastStyles,
+          duration: 4000,
+        });
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Please try again later.", {
+        ...toastStyles,
+        duration: 4000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -111,7 +157,21 @@ function Contact() {
                 required
               ></textarea>
             </div>
-            <button type="submit">Send Message</button>
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className={isSubmitting ? "submitting" : ""}
+            >
+              {isSubmitting ? (
+                <>
+                  <span className="spinner"></span>
+                  Sending...
+                </>
+              ) : (
+                "Send Message"
+              )}
+            </button>
           </form>
         </div>
       </div>
