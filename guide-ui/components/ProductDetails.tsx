@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import "./ProductDetails.css";
+import "@/styles/ProductDetails.css";
 import logo from "@/assets/images/logo512.png";
 import ProductBundle from "./ProductBundle";
 import { fetchProductById, fetchProductsByIds } from "@/lib/apis/products";

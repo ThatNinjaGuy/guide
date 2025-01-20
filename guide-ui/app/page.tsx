@@ -1,13 +1,9 @@
-import CategoriesSection from "@/components/CategoriesSection";
-import ExperienceSection from "@/components/ExperienceSection";
-import FeaturedBundles from "@/components/FeaturedBundles";
+import Home from "@/components/Home";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main>
-      <CategoriesSection />
-      <ExperienceSection />
-      <FeaturedBundles />
+      <Home />
     </main>
   );
 }

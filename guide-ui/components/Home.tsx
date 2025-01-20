@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import "@/styles/Home.css";
 import HeroSection from "./HeroSection";
 import CategoriesSection from "./CategoriesSection";
@@ -29,7 +29,6 @@ export default function Home() {
       setIsLoading(true);
       try {
         const bundles = await fetchFeaturedBundles();
-        console.log("bundles", bundles);
         setFeaturedBundles(bundles || []);
       } catch (error) {
         console.error("Error fetching featured bundles:", error);
@@ -54,13 +53,9 @@ export default function Home() {
         searchQuery,
         universities,
         experience,
-        categories[0] || ""
+        categories
       );
-      console.log(data);
-      router.push({
-        pathname: "/search-results",
-        query: { results: JSON.stringify(data) },
-      });
+      router.push(`/search-results?results=${JSON.stringify(data)}`);
     } catch (error) {
       console.error("Error fetching results:", error);
     }

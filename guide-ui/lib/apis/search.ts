@@ -1,13 +1,20 @@
-// guide-ui/src/components/api.js
+import { Product, fetchProducts } from "./products";
 
-import { fetchProducts } from "./products";
+interface SearchResults {
+  searchQuery: string;
+  universities: string[];
+  experience: string[];
+  category: string[];
+  normalProducts: Product[];
+  bundledProducts: Product[];
+}
 
 export const fetchSearchResults = async (
-  searchQuery,
-  universities,
-  experience,
-  category
-) => {
+  searchQuery: string,
+  universities: string[],
+  experience: string[],
+  category: string[]
+): Promise<SearchResults> => {
   const products = await fetchProducts();
 
   // Filter products based on search criteria
