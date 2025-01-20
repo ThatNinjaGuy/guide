@@ -48,7 +48,6 @@ export default function Home() {
     categories: string[]
   ) => {
     try {
-      console.log(searchQuery, universities, experience, categories);
       const data = await fetchSearchResults(
         searchQuery,
         universities,

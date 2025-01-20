@@ -34,14 +34,12 @@ function Home() {
     category
   ) => {
     try {
-      console.log(searchQuery, universities, experience, category);
       const data = await fetchSearchResults(
         searchQuery,
         universities,
         experience,
         category
       );
-      console.log(data);
       navigate("/search-results", { state: { results: data } });
     } catch (error) {
       console.error("Error fetching results:", error);

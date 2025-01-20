@@ -7,17 +7,31 @@ import logo from "@/assets/images/logo512.png";
 import ProductBundle from "./ProductBundle";
 import { fetchProductById, fetchProductsByIds } from "@/lib/apis/products";
 
+interface Product {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  image?: string;
+  products?: string[];
+}
+
 interface ProductDetailsProps {
   id: string;
 }
 
 export default function ProductDetails({ id }: ProductDetailsProps) {
-  const [productBundle, setProductBundle] = useState<any>(null);
-  const [includedProducts, setIncludedProducts] = useState([]);
+  const [productBundle, setProductBundle] = useState<Product | null>(null);
+  const [includedProducts, setIncludedProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const loadProductDetails = async () => {
       try {
+        setIsLoading(true);
+        setError(null);
+
         const product = await fetchProductById(id);
         setProductBundle(product);
 
@@ -25,18 +39,31 @@ export default function ProductDetails({ id }: ProductDetailsProps) {
 
         if (product && product.products && product.products.length > 0) {
           const included = await fetchProductsByIds(product.products);
-          setIncludedProducts(included as any);
+          setIncludedProducts(included as Product[]);
+        } else {
+          setIncludedProducts([]);
         }
       } catch (error) {
         console.error("Error loading product details:", error);
+        setError("Failed to load product details. Please try again later.");
+      } finally {
+        setIsLoading(false);
       }
     };
 
     loadProductDetails();
   }, [id]);
 
+  if (isLoading) {
+    return <div className="loading-state">Loading product details...</div>;
+  }
+
+  if (error) {
+    return <div className="error-state">{error}</div>;
+  }
+
   if (!productBundle) {
-    return <p>Loading product details...</p>;
+    return <div className="error-state">Product not found</div>;
   }
 
   return (
