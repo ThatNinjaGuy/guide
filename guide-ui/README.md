@@ -1,6 +1,6 @@
 # MentorGuide UI
 
-A comprehensive React-based mentorship platform that connects students and professionals with expert mentors for personalized guidance and career development.
+A comprehensive Next.js-based mentorship platform that connects students and professionals with expert mentors for personalized guidance and career development.
 
 ## Overview
 
@@ -61,20 +61,47 @@ MentorGuide UI is an intuitive web application designed to streamline the proces
 
 ## Technical Stack
 
-- React 18.2.0
-- React Router DOM 7.1.3
+- Next.js 14 (App Router)
+- React 18
+- TypeScript
 - Modern CSS with CSS Variables
 - Responsive Design
 - Component-Based Architecture
 
-## Quick Start
+## Getting Started
 
-1. Install dependencies:
-bash
+First, install the dependencies:
+
+```bash
 npm install
+# or
+yarn install
+# or
+pnpm install
+```
 
-2. Start the development server:
-bash
-npm start
+Then, run the development server:
 
-3. Access the application at `http://localhost:3000`
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Learn More
+
+To learn more about the technologies used in this project:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API
+- [React Documentation](https://react.dev) - learn about React
+- [TypeScript Documentation](https://www.typescriptlang.org/docs) - learn about TypeScript
+
+## Deployment
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

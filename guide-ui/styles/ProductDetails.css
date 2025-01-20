@@ -1,0 +1,145 @@
+.product-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  background-color: var(--background-main);
+  border-radius: var(--border-radius-md);
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.product-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-sm);
+  flex-wrap: wrap;
+  border: 1px solid var(--border-main);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--background-paper);
+}
+
+.product-column {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-row-a {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.product-title {
+  flex: 1;
+}
+
+.product-row-b {
+  margin-top: var(--spacing-sm);
+}
+
+.pricing-column {
+  flex: 1;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+}
+
+.product-image {
+  max-width: 100px;
+  height: auto;
+  border-radius: var(--border-radius-md);
+}
+
+.product-description {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+  font-size: 0.9em;
+  padding-right: var(--spacing-xl);
+}
+
+.pricing-info {
+  flex: 1;
+  text-align: center;
+  background-color: var(--background-paper);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.purchase-button {
+  display: inline-block;
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 1.2em;
+  color: var(--text-light);
+  background-color: var(--primary-main);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.purchase-button:hover {
+  background-color: var(--primary-dark);
+}
+
+.product-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.product-details h2,
+.product-details h3 {
+  color: var(--text-primary);
+}
+
+.product-details p {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+  font-size: 0.9em;
+}
+
+.product-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.product-details li {
+  background-color: var(--background-paper);
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.pricing {
+  margin-bottom: var(--spacing-md);
+  font-size: 1.5em;
+  color: var(--text-primary);
+  text-align: right;
+}
+
+.product-image.small {
+  width: 100%;
+  height: auto;
+}
+
+/* Removed .product-card styles as they are now handled by ProductBundle.css */
+
+.included-sessions {
+  background-color: var(--background-paper);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
