@@ -97,7 +97,7 @@ export default function ProductDetails({ id }: ProductDetailsProps) {
         <div className="included-sessions">
           <h3>Included Mentorships</h3>
           <div className="product-cards">
-            {includedProducts.map((product: any) => (
+            {includedProducts.map((product: Product) => (
               <ProductBundle key={product.id} bundle={product} />
             ))}
           </div>

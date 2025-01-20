@@ -61,7 +61,7 @@ function Contact() {
           duration: 4000,
         });
       }
-    } catch (error) {
+    } catch {
       toast.error("Something went wrong. Please try again later.", {
         ...toastStyles,
         duration: 4000,
@@ -92,7 +92,8 @@ function Contact() {
           <div className="contact-info">
             <h2>Get in Touch</h2>
             <p>
-              Have questions about our mentorship programs? We're here to help!
+              Have questions about our mentorship programs? We&apos;re here to
+              help!
             </p>
             <div className="contact-details">
               <div className="contact-item">

@@ -9,7 +9,6 @@ import FeaturedBundles from "./FeaturedBundles";
 import WhyChooseUs from "./WhyChooseUs";
 import UniversitiesSection from "./UniversitiesSection";
 import ExperienceSection from "./ExperienceSection";
-import { fetchSearchResults } from "@/lib/apis/search";
 import { fetchFeaturedBundles } from "@/lib/apis/products";
 
 interface Bundle {

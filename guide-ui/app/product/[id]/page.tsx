@@ -2,10 +2,15 @@ import { Suspense } from "react";
 import ProductDetails from "@/components/ProductDetails";
 import Loading from "@/components/Loading";
 
-export default function ProductPage({ params }: { params: { id: string } }) {
+type Props = {
+  params: Promise<{ id: string }>;
+};
+
+export default async function ProductPage({ params }: Props) {
+  const { id } = await params;
   return (
     <Suspense fallback={<Loading />}>
-      <ProductDetails id={params.id} />
+      <ProductDetails id={id} />
     </Suspense>
   );
 }
