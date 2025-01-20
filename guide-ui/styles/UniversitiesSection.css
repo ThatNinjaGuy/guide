@@ -4,6 +4,17 @@
   text-align: center;
 }
 
+.universities-section h2 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.universities-section p {
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto var(--spacing-lg);
+}
+
 .universities-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -34,8 +45,49 @@
   color: var(--primary-dark);
 }
 
+.university-card p {
+  color: var(--text-secondary);
+  font-size: 0.9em;
+  margin-bottom: var(--spacing-sm);
+}
+
 .university-card:focus {
   outline: 2px solid var(--primary-main);
   transform: translateY(-5px);
   box-shadow: var(--shadow-md);
+}
+
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+  .universities-section {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .universities-grid {
+    gap: var(--spacing-md);
+  }
+
+  .university-card {
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .universities-section {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .universities-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-sm);
+  }
+
+  .university-card {
+    padding: var(--spacing-sm);
+  }
+
+  .university-card h3 {
+    font-size: 1.1em;
+    margin-bottom: var(--spacing-sm);
+  }
 }

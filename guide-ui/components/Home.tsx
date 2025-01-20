@@ -47,17 +47,14 @@ export default function Home() {
     experience: string[],
     categories: string[]
   ) => {
-    try {
-      const data = await fetchSearchResults(
-        searchQuery,
-        universities,
-        experience,
-        categories
-      );
-      router.push(`/search-results?results=${JSON.stringify(data)}`);
-    } catch (error) {
-      console.error("Error fetching results:", error);
-    }
+    const searchParams = new URLSearchParams({
+      q: searchQuery,
+      universities: universities.join(","),
+      experience: experience.join(","),
+      categories: categories.join(","),
+    });
+
+    router.push(`/search-results?${searchParams.toString()}`);
   };
 
   return (

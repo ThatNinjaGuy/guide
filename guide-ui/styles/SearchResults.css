@@ -1,33 +1,68 @@
 .search-results {
-  padding: 2rem;
+  padding: var(--spacing-xl);
 }
 
 .search-results h2 {
   text-align: center;
-  margin-bottom: 2rem;
-  color: #333;
+  margin-bottom: var(--spacing-xl);
+  color: var(--text-primary);
 }
 
 /* Add spacing between the two product sections */
 .search-results h2:not(:first-child) {
-  margin-top: 4rem; /* Add more space above the "Available Products" heading */
+  margin-top: var(
+    --spacing-xl
+  ); /* Add more space above the "Available Products" heading */
 }
 
 .results-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 0 2rem;
-  margin-bottom: 2rem; /* Add bottom margin to each grid */
+  gap: var(--spacing-xl);
+  padding: 0 var(--spacing-xl);
+  margin-bottom: var(--spacing-xl); /* Add bottom margin to each grid */
 }
 
 .no-results {
   text-align: center;
-  padding: 3rem;
-  color: #666;
+  padding: var(--spacing-xl);
+  color: var(--text-secondary);
+  background-color: var(--background-paper);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Add a section wrapper for better spacing control */
 .products-section {
-  margin-bottom: 4rem;
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-md);
+  background-color: var(--background-paper);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+  .search-results {
+    padding: var(--spacing-md);
+  }
+
+  .results-grid {
+    padding: 0 var(--spacing-sm);
+    gap: var(--spacing-md);
+  }
+
+  .products-section {
+    padding: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .search-results {
+    padding: var(--spacing-sm);
+  }
+
+  .results-grid {
+    padding: 0;
+  }
 }

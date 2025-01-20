@@ -1,44 +1,44 @@
 export const theme = {
   colors: {
     primary: {
-      main: "#556b2f",
-      light: "#718355",
-      dark: "#3c4a21",
+      dark: "#4B5320",
+      main: "#556B2F",
+      light: "#F5F5DC",
     },
     secondary: {
-      main: "#8b4513",
-      light: "#a5682d",
-      dark: "#612f0d",
-    },
-    background: {
-      main: "#f5f5dc",
-      light: "#ffffff",
-      paper: "#fafaf0",
+      main: "#CD853F",
+      dark: "#8B4513",
     },
     text: {
       primary: "#333333",
       secondary: "#666666",
-      light: "#ffffff",
+      light: "#FFFFFF",
+    },
+    background: {
+      main: "#F5F5DC",
+      paper: "#FFFFFF",
+      light: "#F8F9FA",
     },
     border: {
-      main: "#dddddd",
+      main: "#DDD",
+      dark: "rgba(0, 0, 0, 0.1)",
     },
   },
   spacing: {
-    xs: "0.25rem",
-    sm: "0.5rem",
-    md: "1rem",
-    lg: "1.5rem",
-    xl: "2rem",
+    xs: "0.5rem",
+    sm: "1rem",
+    md: "1.5rem",
+    lg: "2rem",
+    xl: "3rem",
   },
   borderRadius: {
-    sm: "0.25rem",
-    md: "0.5rem",
-    lg: "1rem",
+    sm: "4px",
+    md: "8px",
+    lg: "12px",
   },
   shadows: {
-    sm: "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)",
-    md: "0 3px 6px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.12)",
-    lg: "0 10px 20px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.10)",
+    sm: "0 2px 4px rgba(0, 0, 0, 0.1)",
+    md: "0 2px 8px rgba(0, 0, 0, 0.1)",
+    lg: "0 4px 12px rgba(0, 0, 0, 0.1)",
   },
 };

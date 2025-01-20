@@ -53,20 +53,17 @@ function Contact() {
                 <i className="fas fa-envelope"></i>
                 <p>{CONTACT_EMAIL}</p>
                 <i
-                  className="fas fa-paper-plane"
+                  className="fas fa-mailbox"
                   onClick={handleEmailClick}
-                  style={{ cursor: "pointer", marginLeft: "10px" }}
+                  style={{
+                    cursor: "pointer",
+                    marginLeft: "10px",
+                    fontSize: "1.2rem",
+                    color: "var(--primary-main)",
+                  }}
                   title="Send Email"
                 ></i>
               </div>
-              {/* <div className="contact-item">
-                <i className="fas fa-phone"></i>
-                <p>+91 9110091875</p>
-              </div> */}
-              {/* <div className="contact-item">
-                <i className="fas fa-location-dot"></i>
-                <p>India</p>
-              </div> */}
             </div>
           </div>
 

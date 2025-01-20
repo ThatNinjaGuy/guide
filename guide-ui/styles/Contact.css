@@ -1,5 +1,4 @@
 .contact {
-  padding: var(--spacing-lg);
   background: linear-gradient(
     135deg,
     var(--background-main),
@@ -13,18 +12,22 @@
 
 .contact-container {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md);
   background-color: var(--background-paper);
-  border-radius: var(--border-radius-md);
-  box-shadow: var(--shadow-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-main);
 }
 
 .contact h1 {
   text-align: center;
-  color: var(--primary-dark);
-  margin-bottom: var(--spacing-xl);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
   font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.2;
 }
 
 .contact-content {
@@ -35,42 +38,59 @@
 
 .contact-info h2 {
   color: var(--primary-main);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
   font-size: 2rem;
+  line-height: 1.2;
 }
 
 .contact-info > p {
   color: var(--text-secondary);
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
   font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .contact-details {
-  margin-top: var(--spacing-lg);
+  margin-top: var(--spacing-md);
 }
 
 .contact-item {
   display: flex;
   align-items: center;
   margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background-color: var(--background-light);
 }
 
 .contact-item i {
   font-size: 1.5rem;
   color: var(--primary-main);
-  margin-right: var(--spacing-sm);
+  margin-right: var(--spacing-md);
   width: 24px;
+  transition: color 0.3s ease;
+}
+
+.contact-item:hover i {
+  color: var(--primary-dark);
 }
 
 .contact-item p {
   color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .contact-form {
   background: var(--background-paper);
   padding: var(--spacing-lg);
   border-radius: var(--border-radius-md);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-main);
 }
 
 .form-group {
@@ -82,48 +102,68 @@
   margin-bottom: var(--spacing-xs);
   color: var(--text-primary);
   font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
   padding: var(--spacing-sm);
-  padding-right: calc(var(--spacing-sm) - 10px);
   border: 1px solid var(--border-main);
   border-radius: var(--border-radius-sm);
   font-size: 1rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: var(--background-paper);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary-main);
-  box-shadow: 0 0 0 2px rgba(85, 107, 47, 0.1);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: var(--primary-light);
 }
 
 .form-group textarea {
   height: 150px;
   resize: vertical;
+  line-height: 1.5;
 }
 
 .contact-form button {
   width: 100%;
   padding: var(--spacing-sm);
-  background-color: var(--secondary-main);
+  background-color: var(--primary-main);
   color: var(--text-light);
   border: none;
   border-radius: var(--border-radius-sm);
   font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .contact-form button:hover {
-  background-color: var(--secondary-dark);
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-form button:active {
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
+  .contact {
+    padding: var(--spacing-md);
+  }
+
   .contact-container {
     padding: var(--spacing-md);
   }
@@ -140,11 +180,19 @@
   .contact-item {
     justify-content: center;
   }
+
+  .contact h1 {
+    font-size: 2rem;
+  }
+
+  .contact-info h2 {
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
   .contact {
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
   }
 
   .contact-container {
@@ -152,6 +200,21 @@
   }
 
   .contact h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .contact-info > p {
+    font-size: 1rem;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .contact-form button {
+    font-size: 0.9rem;
+  }
+
+  .contact-item i {
+    font-size: 1.2rem;
   }
 }
